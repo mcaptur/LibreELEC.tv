@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="vfs.rar"
-PKG_VERSION="4ce78b0"
+PKG_VERSION="dd164d3"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
-PKG_URL="https://github.com/notspiff/vfs.rar/archive/$PKG_VERSION.tar.gz"
+PKG_URL="https://github.com/AlwinEsch/vfs.rar/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain kodi-platform"
 PKG_SECTION=""
 PKG_SHORTDESC="vfs.rar"
