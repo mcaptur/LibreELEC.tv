@@ -17,7 +17,7 @@
 ################################################################################
 
 PKG_NAME="kodi"
-PKG_VERSION="6dbfa7c"
+PKG_VERSION="734cda1"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
@@ -222,6 +222,7 @@ PKG_CMAKE_OPTS_TARGET="-DNATIVEPREFIX=$TOOLCHAIN \
                        -DENABLE_LIRC=ON \
                        -DENABLE_EVENTCLIENTS=ON \
                        -DENABLE_LDGOLD=ON \
+                       -DENABLE_DEBUGFISSION=OFF \
                        $KODI_ARCH \
                        $KODI_OPENMAX \
                        $KODI_VDPAU \
