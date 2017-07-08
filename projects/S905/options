@@ -140,8 +140,9 @@
     EXTRA_DEPS_PKG="u-boot-tools"
 
   # set the addon dirs
-    ADDON_SERVER_URL="http://kszaq.libreelec.tv/addons"
-    ADDON_URL="$ADDON_SERVER_URL/$ADDON_PATH"
+    #ADDON_SERVER_URL="http://kszaq.libreelec.tv/addons"
+    #ADDON_URL="$ADDON_SERVER_URL/$ADDON_PATH"
+    ADDON_URL="https://raw.githubusercontent.com/Raybuntu/rb-addons/master/addons/$ADDON_VERSION/Odroid_C2/$TARGET_ARCH"
 
   # OEM packages for OEM's (yes / no)
     OEM_SUPPORT="yes"
