@@ -23,11 +23,13 @@ PKG_SITE="http://openlinux.amlogic.com"
 case $TARGET_KERNEL_ARCH in
   arm)
     PKG_VERSION="5e23a81"
+    PKG_SHA256="412cfafbd9725f5186b884b9599ff6561d2031b44d9873e79d377631a2b5f9b9"
     PKG_URL="https://github.com/codesnake/libamcodec/archive/$PKG_VERSION.tar.gz"
     ;;
   arm64)
     PKG_VERSION="2fba80c"
     PKG_URL="https://github.com/surkovalex/libamcodec/archive/$PKG_VERSION.tar.gz"
+    PKG_SHA256="ace58aeed528d1096d7dd4812d044dbf67ac89eb476b93e019916e44feea06dc"
     ;;
 esac
 PKG_DEPENDS_TARGET="toolchain alsa-lib"

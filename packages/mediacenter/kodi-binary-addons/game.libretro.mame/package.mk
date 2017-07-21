@@ -18,6 +18,7 @@
 
 PKG_NAME="game.libretro.mame"
 PKG_VERSION="4fef5f6"
+PKG_SHA256="ed0b885e6c43dc57eb800ae78c546a6941ba57511e596c591498f8646d426e40"
 PKG_REV="101"
 PKG_ARCH="x86_64"
 PKG_LICENSE="GPL"
@@ -38,12 +39,4 @@ configure_target() {
         -DCMAKE_MODULE_PATH=$SYSROOT_PREFIX/usr/lib/kodi \
         -DCMAKE_PREFIX_PATH=$SYSROOT_PREFIX/usr \
         ..
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/kodi/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/kodi/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

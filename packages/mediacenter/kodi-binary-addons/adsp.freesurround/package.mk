@@ -18,6 +18,7 @@
 
 PKG_NAME="adsp.freesurround"
 PKG_VERSION="03ec089"
+PKG_SHA256="ea8d7ae37a22e0b6010f4094832d57608604dad1a3aa5e77835527898517b6c0"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -31,11 +32,3 @@ PKG_AUTORECONF="no"
 
 PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="kodi.adsp"
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

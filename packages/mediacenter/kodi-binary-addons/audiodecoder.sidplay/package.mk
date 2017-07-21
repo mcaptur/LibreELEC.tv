@@ -18,6 +18,7 @@
 
 PKG_NAME="audiodecoder.sidplay"
 PKG_VERSION="172cf89"
+PKG_SHA256="ba580bcd662791c38fd1c8ef9b824084028c15d6bcce41908cf5595ad0bd9329"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -33,11 +34,3 @@ PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="kodi.audiodecoder"
 
 PKG_CMAKE_OPTS_TARGET="-DSIDPLAY2_LIBRARIES=$SYSROOT_PREFIX/usr/lib"
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

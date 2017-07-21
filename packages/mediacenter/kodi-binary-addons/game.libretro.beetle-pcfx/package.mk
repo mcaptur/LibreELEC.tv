@@ -18,6 +18,7 @@
 
 PKG_NAME="game.libretro.beetle-pcfx"
 PKG_VERSION="e66ceb5"
+PKG_SHA256="3e157a9b84fe78a61ffb99a3866be72ad437d09f660d830ed111e9669d1c3756"
 PKG_REV="101"
 PKG_ARCH="arm x86_64"
 PKG_LICENSE="GPL"
@@ -38,12 +39,4 @@ configure_target() {
         -DCMAKE_MODULE_PATH=$SYSROOT_PREFIX/usr/lib/kodi \
         -DCMAKE_PREFIX_PATH=$SYSROOT_PREFIX/usr \
         ..
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/kodi/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/kodi/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

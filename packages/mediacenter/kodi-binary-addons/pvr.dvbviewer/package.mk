@@ -18,6 +18,7 @@
 
 PKG_NAME="pvr.dvbviewer"
 PKG_VERSION="a5db9dd"
+PKG_SHA256="e1d148ea44814ea2500a805d08dfea740f92cd84fb5ccd1bf0b20d8f0a399d1a"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -31,11 +32,3 @@ PKG_AUTORECONF="no"
 
 PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="xbmc.pvrclient"
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

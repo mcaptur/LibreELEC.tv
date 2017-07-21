@@ -18,6 +18,7 @@
 
 PKG_NAME="visualization.goom"
 PKG_VERSION="0c93889"
+PKG_SHA256="6c1599c7c6ea7b1d020d56b54bbe078c53e9600f1f3e7cf8b6f1d9e8bea4d4f6"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -35,11 +36,3 @@ PKG_ADDON_TYPE="xbmc.player.musicviz"
 if [ "$OPENGL" = "no" ] ; then
   exit 0
 fi
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

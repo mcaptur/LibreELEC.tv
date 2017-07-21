@@ -18,6 +18,7 @@
 
 PKG_NAME="visualization.pictureit"
 PKG_VERSION="66f88ff"
+PKG_SHA256="94ea09635e54da380c1490899705b349caeafcd2dad1c6c0f534f4b6c52871ae"
 PKG_REV="2"
 PKG_ARCH="x86_64"
 PKG_LICENSE="GPL"
@@ -31,11 +32,3 @@ PKG_AUTORECONF="no"
 
 PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="xbmc.player.musicviz"
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

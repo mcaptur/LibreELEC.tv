@@ -18,6 +18,7 @@
 
 PKG_NAME="game.libretro.beetle-wswan"
 PKG_VERSION="adfe9c1"
+PKG_SHA256="314c89754ddda11fd33fea197a114c10deba4c7623405a64cbe4402853b61c24"
 PKG_REV="101"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -38,12 +39,4 @@ configure_target() {
         -DCMAKE_MODULE_PATH=$SYSROOT_PREFIX/usr/lib/kodi \
         -DCMAKE_PREFIX_PATH=$SYSROOT_PREFIX/usr \
         ..
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/kodi/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/kodi/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

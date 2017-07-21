@@ -18,6 +18,7 @@
 
 PKG_NAME="game.libretro.reicast"
 PKG_VERSION="9356e91"
+PKG_SHA256="836781cd25f90b0783319219626bb6aeadfd88e5fd292a2e1bd156a4f47f1b7d"
 PKG_REV="101"
 PKG_ARCH="x86_64"
 PKG_LICENSE="GPL"
@@ -38,12 +39,4 @@ configure_target() {
         -DCMAKE_MODULE_PATH=$SYSROOT_PREFIX/usr/lib/kodi \
         -DCMAKE_PREFIX_PATH=$SYSROOT_PREFIX/usr \
         ..
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/kodi/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/kodi/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

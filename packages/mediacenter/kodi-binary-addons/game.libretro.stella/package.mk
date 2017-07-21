@@ -18,6 +18,7 @@
 
 PKG_NAME="game.libretro.stella"
 PKG_VERSION="bdb7f23"
+PKG_SHA256="279f21b897a128a4fb61022e2ba3e4189074a84be25a89cd8537e0e245930d89"
 PKG_REV="101"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -38,12 +39,4 @@ configure_target() {
         -DCMAKE_MODULE_PATH=$SYSROOT_PREFIX/usr/lib/kodi \
         -DCMAKE_PREFIX_PATH=$SYSROOT_PREFIX/usr \
         ..
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/kodi/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/kodi/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

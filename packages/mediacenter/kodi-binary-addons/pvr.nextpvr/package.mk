@@ -18,6 +18,7 @@
 
 PKG_NAME="pvr.nextpvr"
 PKG_VERSION="239dbef"
+PKG_SHA256="5f42f0df3a3934f2fd08b1c95be5d96e8f250556703c30990d04841bb35f5522"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -34,12 +35,4 @@ PKG_ADDON_TYPE="xbmc.pvrclient"
 
 pre_configure_target() {
   CXXFLAGS="$CXXFLAGS -Wno-narrowing"
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

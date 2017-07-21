@@ -18,6 +18,7 @@
 
 PKG_NAME="inputstream.adaptive"
 PKG_VERSION="a43d1ee"
+PKG_SHA256="9877ea39936e3e676bd12e31bffa0fa4f95ad7b6e1ce3cee9c8e518f681363dd"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
 PKG_URL="https://github.com/liberty-developer/inputstream.adaptive/archive/$PKG_VERSION.tar.gz"
@@ -40,11 +41,7 @@ post_makeinstall_target() {
 }
 
 addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
+  install_binary_addon $PKG_NAME $PKG_ADDON_ID
 
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/lib/
   cp -P $PKG_BUILD/.$TARGET_NAME/wv/libssd_wv.so $ADDON_BUILD/$PKG_ADDON_ID/lib

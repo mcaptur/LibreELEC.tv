@@ -18,6 +18,7 @@
 
 PKG_NAME="pvr.mediaportal.tvserver"
 PKG_VERSION="07d73f3"
+PKG_SHA256="f52a3bf229f423b67296b8f49872204c4030a9720123dde232aeae74692f2455"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -34,12 +35,4 @@ PKG_ADDON_TYPE="xbmc.pvrclient"
 
 pre_configure_target() {
   CXXFLAGS="$CXXFLAGS -Wno-narrowing"
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

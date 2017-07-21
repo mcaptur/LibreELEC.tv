@@ -18,6 +18,7 @@
 
 PKG_NAME="screensaver.shadertoy"
 PKG_VERSION="2638205"
+PKG_SHA256="f043875258eb160a531c28b28cab2e33752d6014481b8667a50ba7115d5d5c13"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -52,12 +53,4 @@ pre_configure_target() {
     export CFLAGS="$CFLAGS -DLINUX -DEGL_API_FB"
     export CXXFLAGS="$CXXFLAGS -DLINUX -DEGL_API_FB"
   fi
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

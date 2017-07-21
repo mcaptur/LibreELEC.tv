@@ -18,6 +18,7 @@
 
 PKG_NAME="game.libretro.pcsx-rearmed"
 PKG_VERSION="54fccff"
+PKG_SHA256="013007f2385d4d33cd42ea28ea48614ccd336d671e9965ae2ccc271d2cdb166d"
 PKG_REV="101"
 PKG_ARCH="any"
 # RPi doesn't support neon
@@ -40,12 +41,4 @@ configure_target() {
         -DCMAKE_MODULE_PATH=$SYSROOT_PREFIX/usr/lib/kodi \
         -DCMAKE_PREFIX_PATH=$SYSROOT_PREFIX/usr \
         ..
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/kodi/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/kodi/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

@@ -18,6 +18,7 @@
 
 PKG_NAME="audiodecoder.2sf"
 PKG_VERSION="2bc20c5"
+PKG_SHA256="e595cce4aa616c6f36bc110626172be43c87ffe013d2c6aa20aa2cdbaba49b39"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -31,11 +32,3 @@ PKG_AUTORECONF="no"
 
 PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="kodi.audiodecoder"
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

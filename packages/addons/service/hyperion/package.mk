@@ -18,6 +18,7 @@
 
 PKG_NAME="hyperion"
 PKG_VERSION="355a324"
+PKG_SHA256="ea434d02fc2a08fc300e85f88f3dfefd116a1a2be8f67734fab59739570aeeef"
 PKG_REV="106"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/hyperion-project/hyperion"
@@ -83,6 +84,4 @@ addon() {
 
   cp -PR $PKG_BUILD/assets/webconfig $ADDON_BUILD/$PKG_ADDON_ID
   cp -PR $PKG_BUILD/effects $ADDON_BUILD/$PKG_ADDON_ID
-
-  debug_strip $ADDON_BUILD/$PKG_ADDON_ID/bin
 }

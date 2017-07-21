@@ -18,6 +18,7 @@
 
 PKG_NAME="screensaver.pyro"
 PKG_VERSION="97e997e"
+PKG_SHA256="d873b67eb516a625a07554cab44495414dfb2aea92874ee268ad35702959b01c"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -35,11 +36,3 @@ PKG_ADDON_TYPE="xbmc.ui.screensaver"
 if [ "$OPENGL" = "no" ] ; then
   exit 0
 fi
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

@@ -18,6 +18,7 @@
 
 PKG_NAME="screensaver.stars"
 PKG_VERSION="e0da61c"
+PKG_SHA256="1a3d21f967d443429007b5707ad83f0f7e535e3ff33d3616bbff10afe89bbf78"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -35,11 +36,3 @@ PKG_ADDON_TYPE="xbmc.ui.screensaver"
 if [ "$OPENGL" = "no" ] ; then
   exit 0
 fi
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

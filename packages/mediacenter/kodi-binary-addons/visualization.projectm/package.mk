@@ -18,6 +18,7 @@
 
 PKG_NAME="visualization.projectm"
 PKG_VERSION="a39f73b"
+PKG_SHA256="d4ebf092400a4e8295b5559b68c2dcc99e7f56d6bcc48580126aa706da6c6b8d"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -38,12 +39,4 @@ fi
 
 pre_configure_target() {
   export LDFLAGS=`echo $LDFLAGS | sed -e "s|-Wl,--as-needed||"`
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

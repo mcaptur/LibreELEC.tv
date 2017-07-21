@@ -18,6 +18,7 @@
 
 PKG_NAME="screensaver.greynetic"
 PKG_VERSION="8b7b810"
+PKG_SHA256="ded668d9968afdbd57bbb1be37a7b2c6b78e634502625be713008324cb74e52c"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -35,11 +36,3 @@ PKG_ADDON_TYPE="xbmc.ui.screensaver"
 if [ "$OPENGL" = "no" ] ; then
   exit 0
 fi
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}

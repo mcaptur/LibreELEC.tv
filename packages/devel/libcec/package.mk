@@ -18,6 +18,7 @@
 
 PKG_NAME="libcec"
 PKG_VERSION="3953f8d"
+PKG_SHA256="22f4af981599481edfb5945d97978153396ca6944b737bae4f6ff4ecc6ecc5e4"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://libcec.pulse-eight.com/"

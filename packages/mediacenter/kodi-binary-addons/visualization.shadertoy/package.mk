@@ -18,6 +18,7 @@
 
 PKG_NAME="visualization.shadertoy"
 PKG_VERSION="1717f36"
+PKG_SHA256="988015445128036f79f006a0df9c1692838436b4420e418bf84a7113bfc46300"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -52,12 +53,4 @@ pre_configure_target() {
     export CFLAGS="$CFLAGS -DLINUX -DEGL_API_FB"
     export CXXFLAGS="$CXXFLAGS -DLINUX -DEGL_API_FB"
   fi
-}
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
 }

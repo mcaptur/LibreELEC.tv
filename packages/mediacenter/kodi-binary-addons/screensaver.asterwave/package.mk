@@ -18,6 +18,7 @@
 
 PKG_NAME="screensaver.asterwave"
 PKG_VERSION="4326ddc"
+PKG_SHA256="f29d6dd707ef5cd69abcec14af71a2e9623caf207fd12a0e9e0e0379fc3bf798"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -35,11 +36,3 @@ PKG_ADDON_TYPE="xbmc.ui.screensaver"
 if [ "$OPENGL" = "no" ] ; then
   exit 0
 fi
-
-addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/
-  cp -R $PKG_BUILD/.install_pkg/usr/share/$MEDIACENTER/addons/$PKG_NAME/* $ADDON_BUILD/$PKG_ADDON_ID/
-
-  ADDONSO=$(xmlstarlet sel -t -v "/addon/extension/@library_linux" $ADDON_BUILD/$PKG_ADDON_ID/addon.xml)
-  cp -L $PKG_BUILD/.install_pkg/usr/lib/$MEDIACENTER/addons/$PKG_NAME/$ADDONSO $ADDON_BUILD/$PKG_ADDON_ID/
-}
