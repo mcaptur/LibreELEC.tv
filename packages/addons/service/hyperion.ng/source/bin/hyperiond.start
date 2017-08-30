@@ -1,6 +1,7 @@
+#!/bin/sh
 ################################################################################
 #      This file is part of LibreELEC - https://libreelec.tv
-#      Copyright (C) 2016 Team LibreELEC
+#      Copyright (C) 2009-2016 Lukas Rusak (lrusak@libreelec.tv)
 #
 #  LibreELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -16,25 +17,18 @@
 #  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="rpi_ws281x"
-PKG_VERSION="f580777"
-PKG_SHA256="edc831ff9daac354c54bfab1dad52f282ad44225d5769e6ae2b45160fe21762e"
-PKG_ARCH="any"
-PKG_LICENSE=""
-PKG_SITE="https://github.com/hyperion-project/rpi_ws281x"
-PKG_URL="https://github.com/hyperion-project/rpi_ws281x/archive/$PKG_VERSION.tar.gz"
-PKG_DEPENDS_TARGET="toolchain"
-PKG_SECTION=""
-PKG_SHORTDESC="Userspace Raspberry Pi PWM library for WS281X LEDs"
-PKG_LONGDESC="Userspace Raspberry Pi PWM library for WS281X LEDs"
+. /etc/profile
 
-PKG_IS_ADDON="no"
-PKG_AUTORECONF="no"
+oe_setup_addon service.hyperion.ng
 
-make_target() {
-  :
-}
+if [ ! -f "$ADDON_HOME/hyperion.config.json" ]; then
+  mkdir -p $ADDON_HOME
+  cp $ADDON_DIR/config/hyperion.config.json.sample $ADDON_HOME/hyperion.config.json
+fi
 
-makeinstall_target() {
-  :
-}
+exec hyperiond $ADDON_HOME/hyperion.config.json &
+echo $! > /run/hyperiond.pid
+
+if [ -f "/usr/bin/Xorg" ]; then
+  exec hyperion-x11 &
+fi
