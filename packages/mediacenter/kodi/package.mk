@@ -17,19 +17,17 @@
 ################################################################################
 
 PKG_NAME="kodi"
-PKG_VERSION="51a70ff"
-PKG_SHA256="bf77d8eea344775f37342671a358633f1161b76675e0d0983f3769a9168ca298"
+PKG_VERSION="ef76936"
+PKG_SHA256="24e38914b76b5624b0f647657a197961c0b9b9e38cb7ebb016d99de3f0a8d2af"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
 PKG_URL="https://github.com/xbmc/xbmc/archive/$PKG_VERSION.tar.gz"
 PKG_SOURCE_DIR="xbmc-$PKG_VERSION*"
-PKG_DEPENDS_TARGET="toolchain JsonSchemaBuilder:host TexturePacker:host xmlstarlet:host Python zlib systemd pciutils lzo pcre swig:host libass curl fontconfig fribidi tinyxml libjpeg-turbo freetype libcdio taglib libxml2 libxslt rapidjson sqlite ffmpeg crossguid giflib libdvdnav libhdhomerun libfmt"
+PKG_DEPENDS_TARGET="toolchain JsonSchemaBuilder:host TexturePacker:host Python zlib systemd pciutils lzo pcre swig:host libass curl fontconfig fribidi tinyxml libjpeg-turbo freetype libcdio taglib libxml2 libxslt rapidjson sqlite ffmpeg crossguid giflib libdvdnav libhdhomerun libfmt"
 PKG_SECTION="mediacenter"
 PKG_SHORTDESC="kodi: Kodi Mediacenter"
 PKG_LONGDESC="Kodi Media Center (which was formerly named Xbox Media Center or XBMC) is a free and open source cross-platform media player and home entertainment system software with a 10-foot user interface designed for the living-room TV. Its graphical user interface allows the user to easily manage video, photos, podcasts, and music from a computer, optical disk, local network, and the internet using a remote control."
-
-PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
 
 get_graphicdrivers
@@ -137,9 +135,6 @@ fi
 
 if [ "$KODI_SAMBA_SUPPORT" = yes ]; then
   PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET samba"
-  KODI_SAMBA="-DENABLE_SMBCLIENT=ON"
-else
-  KODI_SAMBA="-DENABLE_SMBCLIENT=OFF"
 fi
 
 if [ "$KODI_WEBSERVER_SUPPORT" = yes ]; then
@@ -157,6 +152,12 @@ if [ "$KODI_SSHLIB_SUPPORT" = yes ]; then
   KODI_SSH="-DENABLE_SSH=ON"
 else
   KODI_SSH="-DENABLE_SSH=OFF"
+fi
+
+if echo "$TARGET_FPU" | grep -q '^neon' || [[ "$TARGET_ARCH" = "aarch64" ]]; then
+  KODI_NEON="-DENABLE_NEON=ON"
+else
+  KODI_NEON="-DENABLE_NEON=OFF"
 fi
 
 if [ "$VDPAU_SUPPORT" = "yes" -a "$DISPLAYSERVER" = "x11" ]; then
@@ -186,7 +187,7 @@ fi
 if [ ! "$KODIPLAYER_DRIVER" = default ]; then
   PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET $KODIPLAYER_DRIVER"
   if [ "$KODIPLAYER_DRIVER" = bcm2835-driver ]; then
-    KODI_PLAYER="-DCORE_SYSTEM_NAME=rbpi"
+    KODI_PLAYER="-DCORE_PLATFORM_NAME=rbpi"
   elif [ "$KODIPLAYER_DRIVER" = mesa ]; then
     KODI_PLAYER="-DCORE_PLATFORM_NAME=gbm"
     CFLAGS="$CFLAGS -DMESA_EGL_NO_X11_HEADERS"
@@ -225,7 +226,7 @@ PKG_CMAKE_OPTS_TARGET="-DNATIVEPREFIX=$TOOLCHAIN \
                        -DENABLE_LDGOLD=ON \
                        -DENABLE_DEBUGFISSION=OFF \
                        $KODI_ARCH \
-                       $KODI_OPENMAX \
+                       $KODI_NEON \
                        $KODI_VDPAU \
                        $KODI_VAAPI \
                        $KODI_CEC \
@@ -248,7 +249,7 @@ pre_configure_target() {
 # kodi should never be built with lto
   strip_lto
 
-  export LIBS="$LIBS -lz -lterminfo"
+  export LIBS="$LIBS -lncurses"
 }
 
 post_makeinstall_target() {

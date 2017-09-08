@@ -17,12 +17,12 @@
 ################################################################################
 
 PKG_NAME="samba"
-PKG_VERSION="4.6.6"
-PKG_SHA256="fc31c809f7d85ae30f2b7dcddcb8404201b626047458cb5f2b743d4f6f3f1a8e"
+PKG_VERSION="4.6.7"
+PKG_SHA256="9ef24393de08390f236cabccd6a420b5cea304e959cbf1a99ff317325db3ddfa"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3+"
 PKG_SITE="https://www.samba.org"
-PKG_URL="https://samba.org/samba/ftp/stable/$PKG_NAME-$PKG_VERSION.tar.gz"
+PKG_URL="https://download.samba.org/pub/samba/stable/$PKG_NAME-$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain heimdal:host e2fsprogs Python zlib readline popt libaio connman"
 PKG_NEED_UNPACK="$(get_pkg_directory heimdal) $(get_pkg_directory e2fsprogs)"
 PKG_SECTION="network"

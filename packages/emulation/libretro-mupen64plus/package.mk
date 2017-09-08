@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libretro-mupen64plus"
-PKG_VERSION="78f37ec"
-PKG_SHA256="c0c66102c355ac8f75c7156bd3a0d856982e960613117d55d9b92393c2fca2c1"
+PKG_VERSION="9b01671"
+PKG_SHA256="b80d97c92bdffdbaf265787fad697b39a2c753f715a2f748baad0125d3dc1ce8"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://github.com/libretro/mupen64plus-libretro"
@@ -39,10 +39,14 @@ PKG_LIBVAR="MUPEN64PLUS_LIB"
 make_target() {
   case $PROJECT in
     RPi)
-      make platform=rpi
-      ;;
-    RPi2)
-      make platform=rpi2
+      case $DEVICE in
+        RPi)
+          make platform=rpi
+          ;;
+        RPi2)
+          make platform=rpi2
+          ;;
+      esac
       ;;
     imx6)
       make platform=imx6

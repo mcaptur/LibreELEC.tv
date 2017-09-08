@@ -17,10 +17,11 @@
 ################################################################################
 
 PKG_NAME="game.libretro.reicast"
-PKG_VERSION="9356e91"
-PKG_SHA256="836781cd25f90b0783319219626bb6aeadfd88e5fd292a2e1bd156a4f47f1b7d"
-PKG_REV="101"
-PKG_ARCH="x86_64"
+PKG_VERSION="e2c03e9"
+PKG_SHA256="1207b9f71f1fef6c5bea1cabf3edef7c87e80e3445f9000836eebbb87d2c8e7e"
+PKG_REV="103"
+# no openGL suport in retroplayer yet
+PKG_ARCH="none"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/kodi-game/game.libretro.reicast"
 PKG_URL="https://github.com/kodi-game/game.libretro.reicast/archive/$PKG_VERSION.tar.gz"

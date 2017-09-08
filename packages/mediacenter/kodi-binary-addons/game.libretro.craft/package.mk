@@ -17,11 +17,13 @@
 ################################################################################
 
 PKG_NAME="game.libretro.craft"
-PKG_VERSION="5a215a7"
-PKG_REV="101"
-PKG_ARCH="any"
+PKG_VERSION="ec99c48"
+PKG_SHA256="38a63d2e0bef6ab39bb7a0c76fa299d39cd35ae9adc32c0f3c40dd8114cf9173"
+PKG_REV="103"
+# no openGL suport in retroplayer yet
+PKG_ARCH="none"
 PKG_LICENSE="GPL"
-PKG_SITE="https://github.com/kodi-game/game.libretro.2048"
+PKG_SITE="https://github.com/kodi-game/game.libretro.craft"
 PKG_DEPENDS_TARGET="toolchain kodi-platform libretro-craft"
 PKG_SECTION=""
 PKG_SHORTDESC="game.libretro.craft: A simple Minecraft clone"

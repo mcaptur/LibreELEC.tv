@@ -17,10 +17,11 @@
 ################################################################################
 
 PKG_NAME="game.libretro.mupen64plus"
-PKG_VERSION="db21202"
-PKG_SHA256="aa858c5c6e2136f2ce5701b37b5dd39b0c46ff3e436b7a4fef7676fbcd5f2a27"
-PKG_REV="101"
-PKG_ARCH="any"
+PKG_VERSION="02f2216"
+PKG_SHA256="3543c77d12b6b62c9ff57481d8e81e2d61ab12443dbe9786d8c1f4f89480633f"
+PKG_REV="103"
+# no openGL suport in retroplayer yet
+PKG_ARCH="none"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/kodi-game/game.libretro.mupen64plus"
 PKG_URL="https://github.com/kodi-game/game.libretro.mupen64plus/archive/$PKG_VERSION.tar.gz"

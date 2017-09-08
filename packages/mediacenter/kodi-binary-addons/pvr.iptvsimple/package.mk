@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="pvr.iptvsimple"
-PKG_VERSION="dbf6011"
-PKG_SHA256="1ae06580762d645e4ee934f6caf2b552448f1aca8815d6ef77e487e97b744b48"
+PKG_VERSION="ac4f4bd"
+PKG_SHA256="b4111765820692d2bdd9535a4ee7403753f95a23165f5015cf4cf590c8a2c76f"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

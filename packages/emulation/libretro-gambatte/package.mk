@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libretro-gambatte"
-PKG_VERSION="b1af734"
-PKG_SHA256="53967da808ef8132b131f41a5407d11e7d7b43f5a69f4a52389bd5d23291a503"
+PKG_VERSION="f020a1f"
+PKG_SHA256="c7493d1f60493f1ecf601ea4f72eb8d824c55ef7dd37286b0e443779e22b64bf"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://github.com/libretro/gambatte-libretro"

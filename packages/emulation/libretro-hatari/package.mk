@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libretro-hatari"
-PKG_VERSION="e99678b"
-PKG_SHA256="a1d4d5aad156147455b9eb70307d8bb471a65f157c1140d94593477146882479"
+PKG_VERSION="62bc27f"
+PKG_SHA256="f067df677456111956443cda118c41f83b79e2eb2aebdd0daf6e96cdebd59256"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/libretro/hatari"

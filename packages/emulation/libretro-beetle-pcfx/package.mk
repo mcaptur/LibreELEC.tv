@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="libretro-beetle-pcfx"
-PKG_VERSION="f53c58a"
-PKG_SHA256="05b727c392069159072896005199d0dbcb0f8254c2a1f702d4294b4b35e97665"
+PKG_VERSION="bb6adee"
+PKG_SHA256="e76bcd5ad9fd166f711e436044d81d46333bc65d8d057d0660b8ebd37ba9371a"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://github.com/libretro/beetle-pcfx-libretro"
@@ -39,10 +39,14 @@ PKG_LIBVAR="BEETLE-PCFX_LIB"
 make_target() {
   case $PROJECT in
     RPi)
-      make platform=armv6-hardfloat
-      ;;
-    RPi2)
-      make platform=armv7-neon-hardfloat
+      case $DEVICE in
+        RPi)
+          make platform=armv6-hardfloat
+          ;;
+        RPi2)
+          make platform=armv7-neon-hardfloat
+          ;;
+      esac
       ;;
     imx6)
       make platform=armv7-cortexa9-neon-hardfloat

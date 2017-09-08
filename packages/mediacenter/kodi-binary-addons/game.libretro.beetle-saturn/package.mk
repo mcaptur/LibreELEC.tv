@@ -17,10 +17,11 @@
 ################################################################################
 
 PKG_NAME="game.libretro.beetle-saturn"
-PKG_VERSION="88e0a43"
-PKG_SHA256="de9ad70f5284ce5673d34cf7885b9254692113723a71e5dffcc31a0b890e6e4e"
-PKG_REV="101"
-PKG_ARCH="x86_64"
+PKG_VERSION="33c0d23"
+PKG_SHA256="674807afd3f4d563f3d003b7b4a1be5af0772fa1d9014e318544480a68eb8b2d"
+PKG_REV="103"
+# no openGL suport in retroplayer yet
+PKG_ARCH="none"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/kodi-game/game.libretro.beetle-saturn"
 PKG_URL="https://github.com/kodi-game/game.libretro.beetle-saturn/archive/$PKG_VERSION.tar.gz"

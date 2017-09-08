@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="pvr.mediaportal.tvserver"
-PKG_VERSION="07d73f3"
-PKG_SHA256="f52a3bf229f423b67296b8f49872204c4030a9720123dde232aeae74692f2455"
+PKG_VERSION="c86ab35"
+PKG_SHA256="26262b9e76ee1a67404dbc4f86e5b4bb02959967cca7b92d79ddeddbd905dfcc"
 PKG_REV="2"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
@@ -34,5 +34,5 @@ PKG_IS_ADDON="yes"
 PKG_ADDON_TYPE="xbmc.pvrclient"
 
 pre_configure_target() {
-  CXXFLAGS="$CXXFLAGS -Wno-narrowing"
+  CXXFLAGS="$CXXFLAGS -Wno-narrowing -DXLOCALE_NOT_USED"
 }
