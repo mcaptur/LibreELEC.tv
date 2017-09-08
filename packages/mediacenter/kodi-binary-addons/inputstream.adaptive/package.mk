@@ -20,7 +20,7 @@ PKG_NAME="inputstream.adaptive"
 PKG_VERSION="1656efc"
 PKG_SHA256="6f9e26c7c30240443716d4cc006d9d8476881b22749fe49f30fcadc895365b08"
 PKG_LICENSE="GPL"
-PKG_REV="1"
+PKG_REV="2"
 PKG_SITE="http://www.kodi.tv"
 PKG_URL="https://github.com/peak3d/inputstream.adaptive/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain kodi-platform"
@@ -34,5 +34,5 @@ addon() {
   install_binary_addon $PKG_NAME $PKG_ADDON_ID
 
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID
-  cp -P $PKG_BUILD/.$TARGET_NAME/wv/libssd_wv.so $ADDON_BUILD/$PKG_ADDON_ID
+  cp -P $PKG_BUILD/.$TARGET_NAME/wvdecrypter/libssd_wv.so $ADDON_BUILD/$PKG_ADDON_ID
 }
