@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="kodi"
-PKG_VERSION="d103c09"
-PKG_SHA256="2497e3be7ac979208c3745d50e66258b4e81deb1c56be17e56c06fd2999a8aa9"
+PKG_VERSION="0656acb"
+PKG_SHA256=""
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.kodi.tv"
@@ -33,10 +33,10 @@ PKG_AUTORECONF="no"
 get_graphicdrivers
 
 PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET dbus"
+#if [ "$TARGET_ARCH" = "x86_64" ] || [ "$TARGET_ARCH" = "arm" ]; then
+#  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET nss"
+#fi
 
-if [ "$TARGET_ARCH" = "x86_64" ] || [ "$TARGET_ARCH" = "arm" ]; then
-  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET nss"
-fi
 
 if [ "$DISPLAYSERVER" = "x11" ]; then
   PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET libX11 libXext libdrm libXrandr"
