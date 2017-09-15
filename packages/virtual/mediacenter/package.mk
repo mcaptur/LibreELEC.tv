@@ -34,6 +34,10 @@ _add_binary_addon() {
   [ -f $ROOT/$PACKAGES/mediacenter/kodi-binary-addons/$1/package.mk ] && PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET $1" || true
 }
 
+_add_binary_addon() {
+  [ -f $ROOT/$PACKAGES/mediacenter/kodi-binary-addons/$1/package.mk ] && PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET $1" || true
+}
+
 if [ "$MEDIACENTER" = "kodi" ]; then
   PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET $MEDIACENTER-theme-$SKIN_DEFAULT"
 
@@ -54,13 +58,33 @@ if [ "$MEDIACENTER" = "kodi" ]; then
   fi
 
   _ADDONS_PVR=yes
-#  _ADDONS_ADSP=yes
+  _ADDONS_ADSP=yes
 #  _ADDONS_GAME=no
   _ADDONS_OTHER=yes
 
   # various PVR clients
   if [ "${_ADDONS_PVR}" = "yes" ]; then
+#    _add_binary_addon "pvr.argustv"
+    _add_binary_addon "pvr.demo"
+    _add_binary_addon "pvr.dvblink"
+    _add_binary_addon "pvr.dvbviewer"
+#    _add_binary_addon "pvr.filmon"
     _add_binary_addon "pvr.hts"
+    _add_binary_addon "pvr.hdhomerun"
+    _add_binary_addon "pvr.iptvsimple"
+    _add_binary_addon "pvr.mediaportal.tvserver"
+    _add_binary_addon "pvr.mythtv"
+#    _add_binary_addon "pvr.nextpvr"
+#    _add_binary_addon "pvr.njoy"
+#    _add_binary_addon "pvr.octonet"
+#    _add_binary_addon "pvr.pctv"
+#    _add_binary_addon "pvr.stalker"
+    _add_binary_addon "pvr.teleboy"
+#    _add_binary_addon "pvr.vbox"
+    _add_binary_addon "pvr.vdr.vnsi"
+    _add_binary_addon "pvr.vuplus"
+    _add_binary_addon "pvr.wmc"
+    _add_binary_addon "pvr.zattoo"
   fi
 
   if [ "${_ADDONS_ADSP}" = "yes" ]; then
@@ -103,7 +127,7 @@ if [ "$MEDIACENTER" = "kodi" ]; then
   if [ "${_ADDONS_OTHER}" = "yes" ]; then
     _add_binary_addon "inputstream.adaptive"
     _add_binary_addon "inputstream.smoothstream"
-#    _add_binary_addon "inputstream.rtmp"
+    _add_binary_addon "inputstream.rtmp"
     _add_binary_addon "imagedecoder.raw"
     _add_binary_addon "vfs.rar"
   fi
