@@ -58,7 +58,7 @@ if [ "$MEDIACENTER" = "kodi" ]; then
   fi
 
   _ADDONS_PVR=yes
-  _ADDONS_ADSP=yes
+  _ADDONS_ADSP=no
 #  _ADDONS_GAME=no
   _ADDONS_OTHER=yes
 
@@ -79,12 +79,12 @@ if [ "$MEDIACENTER" = "kodi" ]; then
 #    _add_binary_addon "pvr.octonet"
 #    _add_binary_addon "pvr.pctv"
 #    _add_binary_addon "pvr.stalker"
-    _add_binary_addon "pvr.teleboy"
+#    _add_binary_addon "pvr.teleboy"
 #    _add_binary_addon "pvr.vbox"
     _add_binary_addon "pvr.vdr.vnsi"
     _add_binary_addon "pvr.vuplus"
-    _add_binary_addon "pvr.wmc"
-    _add_binary_addon "pvr.zattoo"
+#    _add_binary_addon "pvr.wmc"
+#    _add_binary_addon "pvr.zattoo"
   fi
 
   if [ "${_ADDONS_ADSP}" = "yes" ]; then
