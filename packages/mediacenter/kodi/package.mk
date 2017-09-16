@@ -17,7 +17,7 @@
 ################################################################################
 
 PKG_NAME="kodi"
-PKG_VERSION="ae8206a"
+PKG_VERSION="1a06e0d"
 PKG_SHA256=""
 PKG_ARCH="any"
 PKG_LICENSE="GPL"

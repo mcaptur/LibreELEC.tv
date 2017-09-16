@@ -73,7 +73,7 @@ if [ "$MEDIACENTER" = "kodi" ]; then
     _add_binary_addon "pvr.hdhomerun"
     _add_binary_addon "pvr.iptvsimple"
     _add_binary_addon "pvr.mediaportal.tvserver"
-    _add_binary_addon "pvr.mythtv"
+#    _add_binary_addon "pvr.mythtv"
 #    _add_binary_addon "pvr.nextpvr"
 #    _add_binary_addon "pvr.njoy"
 #    _add_binary_addon "pvr.octonet"
