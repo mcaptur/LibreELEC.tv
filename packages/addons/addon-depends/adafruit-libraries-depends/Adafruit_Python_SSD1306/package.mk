@@ -1,6 +1,6 @@
 ################################################################################
 #      This file is part of LibreELEC - https://libreelec.tv
-#      Copyright (C) 2016-present Team LibreELEC
+#      Copyright (C) 2017-present Team LibreELEC
 #
 #  LibreELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -16,23 +16,23 @@
 #  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="moonlight-common-c"
-PKG_VERSION="957b1de"
-PKG_SHA256="1e31014b233bd7ab5578e03b4dd872117e796a400ebd912f6624d27133b2e415"
+PKG_NAME="Adafruit_Python_SSD1306"
+PKG_VERSION="b7eccd1"
+PKG_SHA256="eb9d6a1387557681d5f86dbdaa4acd96de74aeccbad57bae647c6da947f9e044"
 PKG_ARCH="any"
-PKG_LICENSE="GPLv3"
-PKG_SITE="https://github.com/moonlight-stream/moonlight-common-c"
-PKG_URL="https://github.com/moonlight-stream/moonlight-common-c/archive/${PKG_VERSION}.tar.gz"
-PKG_DEPENDS_TARGET="toolchain"
-PKG_SECTION=""
-PKG_SHORTDESC="Shared C code for the implementation of Nvidia's GameStream protocol"
-PKG_LONGDESC="Shared C code for the implementation of Nvidia's GameStream protocol"
+PKG_LICENSE="MIT"
+PKG_SITE="https://github.com/adafruit/${PKG_NAME}"
+PKG_URL="https://github.com/adafruit/${PKG_NAME}/archive/$PKG_VERSION.tar.gz"
+PKG_DEPENDS_TARGET="toolchain Python distutilscross:host"
+PKG_SECTION="python"
+PKG_SHORTDESC="Adafruit Python SSD1306 Library"
+PKG_LONGDESC="SSD1306 oled driver library for 'monochrome' 128x64 and 128x32 OLEDs."
 PKG_AUTORECONF="no"
 
 make_target() {
-  :
+  : # nop
 }
 
 makeinstall_target() {
-  :
+  : # nop
 }
