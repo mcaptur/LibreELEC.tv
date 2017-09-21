@@ -47,8 +47,8 @@
 
   # Kernel to use. values can be:
     LINUX="custom"
-    CUSTOM_VERSION="Nougat-testing8"
-    KERNEL_VERSION="ca1ae6e"
+    CUSTOM_VERSION="Leia-testing-Gendo-21-09-2017"
+    KERNEL_VERSION="d562e8e"
     KERNEL_URL="https://github.com/kszaq/linux-amlogic-le/archive/$KERNEL_VERSION.tar.gz"
     KERNEL_SOURCE_DIR="linux-amlogic-le-$KERNEL_VERSION*"
     KERNEL_PATCH_DIRS="amlogic-3.14"
