@@ -63,6 +63,7 @@ fi
 case "$TARGET_ARCH" in
   arm)
     FFMPEG_TABLES="--enable-hardcoded-tables"
+    CFLAGS=$(echo "$CFLAGS" | sed 's/-Os/-O3/g')
     ;;
   *)
     FFMPEG_TABLES="--disable-hardcoded-tables"
