@@ -30,8 +30,9 @@
   # Kernel target
     KERNEL_TARGET="Image.lzo"
 
-  # Kernel extra targets to build gxm_q200_2G_minix_neo_u9.dtb
-    KERNEL_UBOOT_EXTRA_TARGET="gxm_q201_1g.dtb gxm_q200_3g.dtb gxm_q201_3g.dtb"
+  # Kernel extra targets to build 
+    KERNEL_UBOOT_EXTRA_TARGET="gxm_q200_2g.dtb gxm_q201_1g.dtb gxm_q201_2g.dtb"
+
 
   # Build Android kernel image using mkbootimg
     BUILD_ANDROID_BOOTIMG="yes"
@@ -47,7 +48,7 @@
 
   # Kernel to use. values can be:
     LINUX="custom"
-    CUSTOM_VERSION="Leia-testing-Gendo-23-09-2017"
+    CUSTOM_VERSION="Leia-testing-Gendo-24-09-2017"
     KERNEL_VERSION="d562e8e"
     KERNEL_URL="https://github.com/kszaq/linux-amlogic-le/archive/$KERNEL_VERSION.tar.gz"
     KERNEL_SOURCE_DIR="linux-amlogic-le-$KERNEL_VERSION*"
@@ -100,8 +101,9 @@
   # additional drivers to install:
   # for a list of additinoal drivers see packages/linux-drivers
   # Space separated list is supported,
-  # e.g. ADDITIONAL_DRIVERS="DRIVER1 DRIVER2 RTL8192CU RTL8192DU RTL8192EU RTL8812AU qca9377-aml media_build mt7601u-aml mt7603u-aml gpu-aml-t8xx"
-    ADDITIONAL_DRIVERS="RTL8192CU RTL8192DU RTL8192EU RTL8812AU qca9377-aml media_build mt7601u-aml mt7603u-aml gpu-aml-t8xx"
+  # e.g. ADDITIONAL_DRIVERS="DRIVER1 DRIVER2 RTL8192CU RTL8192DU RTL8192EU RTL8812AU qca9377-aml"
+
+ADDITIONAL_DRIVERS="RTL8192CU RTL8192DU RTL8192EU RTL8812AU gpu-aml-t8xx media_build ap6xxx-aml mt7601u-aml mt7603u-aml qca9377-aml RTL8188EU-aml RTL8189ES-aml RTL8189FS-aml RTL8723BS-aml RTL8822BU-aml ssv6xxx-aml"
 
   # additional Firmware to use (dvb-firmware, misc-firmware, wlan-firmware)
   # Space separated list is supported,

@@ -17,19 +17,18 @@
 #  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="qca9377-aml"
+PKG_NAME="ssv6xxx-aml"
 PKG_REV="1"
 PKG_ARCH="arm aarch64"
 PKG_LICENSE="GPL"
-PKG_SITE="https://boundarydevices.com/new-silex-wifi-802-11ac-bt4-1-module/"
-PKG_VERSION="7ec8faa"
-PKG_URL="https://github.com/boundarydevices/qcacld-2.0/archive/$PKG_VERSION.tar.gz"
-PKG_SOURCE_DIR="qcacld-2.0-$PKG_VERSION*"
+PKG_VERSION="1041e7d"
+PKG_URL="http://kszaq.libreelec.tv/sources/ssv6xxx-$PKG_VERSION.tar.gz"
+PKG_SOURCE_DIR="ssv6xxx-${PKG_VERSION}*"
 PKG_DEPENDS_TARGET="toolchain linux"
 PKG_NEED_UNPACK="$LINUX_DEPENDS"
 PKG_SECTION="driver"
-PKG_SHORTDESC="qca9377-aml"
-PKG_LONGDESC="qca9377-aml"
+PKG_SHORTDESC="ssv6xxx-aml"
+PKG_LONGDESC="ssv6xxx-aml"
 
 PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
@@ -40,12 +39,30 @@ if [ "$TARGET_KERNEL_ARCH" = "arm64" -a "$TARGET_ARCH" = "arm" ]; then
   TARGET_PREFIX=aarch64-linux-gnu-
 fi
 
+pre_configure_target() {
+  sed -i 's,hw_cap_p2p = on,hw_cap_p2p = off,g' ssv6051/firmware/ssv6051-wifi.cfg
+}
+
 make_target() {
-  KERNEL_SRC="$(kernel_path)" ARCH=$TARGET_KERNEL_ARCH CROSS_COMPILE=$TARGET_PREFIX \
-    LDFLAGS="" CFLAGS="" CONFIG_CLD_HL_SDIO_CORE=y make
+  if [ "$TARGET_KERNEL_ARCH" = "arm64" ]; then
+    PLATFORM="aml-s905"
+  else
+    PLATFORM="aml-s805"
+  fi
+
+  cd $PKG_BUILD/ssv6051
+    ./ver_info.pl include/ssv_version.h
+    cp Makefile.android Makefile
+    sed -i 's,PLATFORMS =,PLATFORMS = '"$PLATFORM"',g' Makefile
+    LDFLAGS="" SSV_ARCH="$TARGET_KERNEL_ARCH" SSV_CROSS="$TARGET_PREFIX" SSV_KERNEL_PATH="$(kernel_path)" make module
 }
 
 makeinstall_target() {
+  # kernel module
   mkdir -p $INSTALL/usr/lib/modules/$(get_module_dir)/$PKG_NAME
-  cp $PKG_BUILD/wlan.ko $INSTALL/usr/lib/modules/$(get_module_dir)/$PKG_NAME/
+    cp $PKG_BUILD/ssv6051/ssv6051.ko $INSTALL/usr/lib/modules/$(get_module_dir)/$PKG_NAME/
+
+  # firmware
+  mkdir -p $INSTALL/usr/lib/firmware/ssv6051
+    cp $PKG_BUILD/ssv6051/firmware/* $INSTALL/usr/lib/firmware/ssv6051/
 }
