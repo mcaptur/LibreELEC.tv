@@ -48,7 +48,7 @@
 
   # Kernel to use. values can be:
     LINUX="custom"
-    CUSTOM_VERSION="Leia-testing-Gendo-19-10-2017"
+    CUSTOM_VERSION="Leia-testing-Gendo-20-10-2017"
     KERNEL_VERSION="d562e8e"
     KERNEL_URL="https://github.com/kszaq/linux-amlogic-le/archive/$KERNEL_VERSION.tar.gz"
     KERNEL_SOURCE_DIR="linux-amlogic-le-$KERNEL_VERSION*"
