@@ -143,7 +143,7 @@
   # set the addon dirs
  #  ADDON_SERVER_URL="http://kszaq.libreelec.tv/addons"
  #  ADDON_URL="$ADDON_SERVER_URL/$ADDON_PATH"
-    ADDON_URL="http://raybuntu.libreelec.tv/addons/9.0.4/Odroid_C2/arm/"
+    ADDON_URL="http://raybuntu.libreelec.tv/addons/$ADDON_VERSION/Odroid_C2/$TARGET_ARCH"
 
   # OEM packages for OEM's (yes / no)
     OEM_SUPPORT="yes"
